@@ -4,11 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
-    <script type="text/javascript">
-        window.location.href = "https://www.virtualgf.chat/";  <!-- Replace with your URL -->
-    </script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 5em;
+            font-weight: bold;
+            color: #333;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting to the website...</p>
+
+    <div>
+        <div id="countdown">6</div>
+        <div id="message">Redirecting to the website...</div>
+    </div>
+
+    <script type="text/javascript">
+        // Set the countdown duration (in seconds)
+        var countdownDuration = 6;
+        var countdownElement = document.getElementById('countdown');
+        
+        // Update the countdown every 1 second
+        var countdownTimer = setInterval(function() {
+            countdownDuration--;
+            countdownElement.textContent = countdownDuration;
+            
+            // When the countdown reaches 0, redirect to the target URL
+            if (countdownDuration <= 0) {
+                clearInterval(countdownTimer);
+                window.location.href = "https://www.virtualgf.chat/";  // Replace with your URL
+            }
+        }, 1000);
+    </script>
+
 </body>
 </html>
